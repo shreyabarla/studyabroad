@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendation Report</title>
+    <link rel="stylesheet" href="../static/report.css">
+</head>
+<body>
+<div class="container">
+    <h1>Study Abroad Recommendation</h1>
+    <div>
+        <h2>Recommended Country</h2>
+        <p class="country">{{ country }}</p>
+    </div>
+
+    <div>
+        <h2>Reasons</h2>
+        <ul>
+            {% for reason in reasons %}
+                <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Country Scores</h2>
+        <table>
+            <tr>
+                <th>Country</th>
+                <th>Score</th>
+            </tr>
+            {% for country, score in scores.items() %}
+            <tr>
+                <td>{{ country }}</td>
+                <td>{{ score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Study Abroad Recommendation</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Study Abroad Recommendation Form</h1>
+
+    <form method="POST">
+        <label>Full Name</label><br/>
+        <input type="text" name="name"
+        required>
+
+        <br/>
+        <label>Mobile Number</label><br/>
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter 10-digit phone number"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            required
+        >
+
+        <br/>
+        <label>Email ID</label><br/>
+        <input type="email" name="email" placeholder="Enter your Email"
+        required
+        >
+
+        <br/>
+        <label>Preferred Destination</label><br/>
+
+        <select name="destination">
+            <option>Select</option>
+            <option>Canada</option>
+            <option>Australia</option>
+            <option>US</option>
+        </select>
+
+        <br/>
+        <label>Education</label><br/>
+
+        <select name="education">
+            <option>Select</option>
+            <option>12th Grade</option>
+            <option>Bachelor's Degree</option>
+            <option>Diploma</option>
+        </select>
+
+        <br/>
+        <label>CGPA</label><br/>
+        <input 
+            type="text"
+            id="cgpa"
+            name="cgpa"
+            placeholder="Enter your CGPA"
+            >
+
+        <br/>
+        <label>Preferred Study Field</label><br/>
+
+        <select name="field">
+            <option>Select</option>
+            <option>Engineering</option>
+            <option>Medical</option>
+            <option>Business & Management</option>
+            <option>Finance</option>
+        </select>
+
+        <br/>
+        
+        <div class="radio-group">
+
+            <label>Need Scholarship?</label>
+
+            <div class="options">
+
+                <label>
+                    <input type="radio" name="scholarship" value="Yes">
+                    Yes
+                </label>
+
+                <label>
+                    <input type="radio" name="scholarship" value="No">
+                    No
+                </label>
+
+            </div>
+
+        </div>
+
+        <br/>
+        <div class="radio-group">
+
+            <label>Need PR Opportunities?</label>
+
+            <div class="options">
+
+                <label>
+                    <input type="radio" name="pr" value="Yes">
+                    Yes
+                </label>
+
+                <label>
+                    <input type="radio" name="pr" value="No">
+                    No
+                </label>
+
+            </div>
+
+        </div>
+
+        <br/>
+        <label>Importance of Part Time Jobs</label><br/>
+        <select name="part_time">
+            <option>Select</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+        </select>
+
+        <br/>
+        <label>English Proficiency Test</label><br/>
+        <select name = test>
+            <option>Select</option>
+            <option>IELTS</option>
+            <option>PTE</option>
+            <option>TOEFL</option>
+        </select>
+
+        <br/>
+        <label>Exam Score</label><br/>
+        <input
+            type="text"
+            id="score"
+            name="score"
+            placeholder="Enter your score"
+        />
+
+        <br/>
+        <label>Maximum Annual Tuition Budget</label><br/>
+        <input
+            type="text"
+            id="tuition_budget"
+            name="tuition_budget"
+            placeholder="Enter your budget"
+        />
+
+        <br/>
+        <br/>
+        <button type="submit">
+            Generate Report
+        </button>
+
+    </form>
+    </div>
+</body>
+</html>
