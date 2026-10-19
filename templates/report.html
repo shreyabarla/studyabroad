@@ -5,38 +5,149 @@
     <link rel="stylesheet" href="../static/report.css">
 </head>
 <body>
+
 <div class="container">
+
     <h1>Study Abroad Recommendation</h1>
-    <div>
-        <h2>Recommended Country</h2>
-        <p class="country">{{ country }}</p>
+
+    <div class="student-card">
+
+    <h2>Student Profile</h2>
+
+    <div class="profile-grid">
+
+        <div>
+            <span>Name</span>
+            <strong>{{ name }}</strong>
+        </div>
+
+        <div>
+            <span>Education</span>
+            <strong>{{ education }}</strong>
+        </div>
+
+        <div>
+            <span>CGPA</span>
+            <strong>{{ cgpa }}</strong>
+        </div>
+
+        <div>
+            <span>Study Field</span>
+            <strong>{{ field }}</strong>
+        </div>
+
+        <div>
+            <span>IELTS</span>
+            <strong>{{ ielts }}</strong>
+        </div>
+
+        <div>
+            <span>Budget</span>
+            <strong>₹{{ budget }}</strong>
+        </div>
+
     </div>
 
-    <div>
-        <h2>Reasons</h2>
-        <ul>
-            {% for reason in reasons %}
-                <li>{{ reason }}</li>
-            {% endfor %}
-        </ul>
+</div>
+
+    <h2>Recommended Country</h2>
+    <p class="country">{{ country }}</p>
+
+    <h2>Reasons</h2>
+    <ul>
+        {% for reason in reasons %}
+            <li>{{ reason }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Top Recommended Universities</h2>
+
+    {% for uni in universities %}
+
+    <div class="university-card">
+
+        <h3>{{ uni[1] }}</h3>
+
+        <p><strong>City:</strong> {{ uni[2] }}</p>
+
+        <p><strong>QS Rank:</strong> {{ uni[3] }}</p>
+
+        <p><strong>Tuition Fee:</strong> ₹ {{ uni[4] }}/year</p>
+
+        <p><strong>Minimum IELTS:</strong> {{ uni[5] }}</p>
+
+        <p><strong>Duration:</strong> {{ uni[6] }}</p>
+
+        <p><strong>Intake:</strong> {{ uni[7] }}</p>
+
     </div>
 
-    <div>
-        <h2>Country Scores</h2>
-        <table>
-            <tr>
-                <th>Country</th>
-                <th>Score</th>
-            </tr>
-            {% for country, score in scores.items() %}
-            <tr>
-                <td>{{ country }}</td>
-                <td>{{ score }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+    {% endfor %}
+
+    <h2>Recommended Course</h2>
+
+    {% if recommended_course %}
+
+    <div class="university-card">
+
+        <h3>{{ recommended_course[0] }}</h3>
+
+        <p><strong>Degree:</strong> {{ recommended_course[1] }}</p>
+
+        <p><strong>Duration:</strong> {{ recommended_course[2] }}</p>
+
+        <p><strong>Tuition Fee:</strong> ₹{{ recommended_course[3] }}/year</p>
+
     </div>
 
+    <p><strong>Recommended Degree:</strong> {{ recommended_course[1] }}</p>
+
+    <p>
+        Based on your education level (<strong>{{ education }}</strong>),
+        you are eligible for this program.
+    </p>
+
+    {% else %}
+
+        <p>No suitable course found.</p>
+
+    {% endif %}
+
+    <h2>Country Scores</h2>
+
+    <table>
+
+        <tr>
+            <th>Country</th>
+            <th>Score</th>
+        </tr>
+
+        {% for c, score in scores.items() %}
+
+        <tr>
+            <td>{{ c }}</td>
+            <td>{{ score }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <div class="action-buttons">
+
+    <a href="/" class="home-btn">
+        Generate Another Report
+    </a>
+
+    <a href="/view-reports" class="reports-btn">
+        My Reports
+    </a>
+
+    <a href="/download-report" class="download-btn">
+        Download PDF
+    </a>
+
+    </div>
 </div>
 
 </body>

@@ -8,7 +8,7 @@
     <div class="container">
     <h1>Study Abroad Recommendation Form</h1>
 
-    <form method="POST">
+    <form action="/generate-report" method="POST">
         <label>Full Name</label><br/>
         <input type="text" name="name"
         required>
@@ -35,10 +35,11 @@
         <label>Preferred Destination</label><br/>
 
         <select name="destination">
-            <option>Select</option>
-            <option>Canada</option>
-            <option>Australia</option>
-            <option>US</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Germany">Germany</option>
         </select>
 
         <br/>
@@ -53,12 +54,12 @@
 
         <br/>
         <label>CGPA</label><br/>
-        <input 
+        <input
             type="text"
-            id="cgpa"
             name="cgpa"
             placeholder="Enter your CGPA"
-            >
+            required
+        >
 
         <br/>
         <label>Preferred Study Field</label><br/>
@@ -72,6 +73,16 @@
         </select>
 
         <br/>
+        <label>Budget</label><br/>
+
+        <select name="budget" required>
+            <option value="">Select</option>
+            <option value="Low">Below ₹10 Lakhs</option>
+            <option value="Medium">₹10 - ₹20 Lakhs</option>
+            <option value="High">Above ₹20 Lakhs</option>
+        </select>
+
+        <br/>
         
         <div class="radio-group">
 
@@ -80,12 +91,12 @@
             <div class="options">
 
                 <label>
-                    <input type="radio" name="scholarship" value="Yes">
+                    <input type="radio" name="scholarship" value="yes">
                     Yes
                 </label>
 
                 <label>
-                    <input type="radio" name="scholarship" value="No">
+                    <input type="radio" name="scholarship" value="no">
                     No
                 </label>
 
@@ -101,12 +112,12 @@
             <div class="options">
 
                 <label>
-                    <input type="radio" name="pr" value="Yes">
+                    <input type="radio" name="pr" value="yes">
                     Yes
                 </label>
 
                 <label>
-                    <input type="radio" name="pr" value="No">
+                    <input type="radio" name="pr" value="no">
                     No
                 </label>
 
@@ -124,37 +135,39 @@
         </select>
 
         <br/>
-        <label>English Proficiency Test</label><br/>
-        <select name = test>
-            <option>Select</option>
-            <option>IELTS</option>
-            <option>PTE</option>
-            <option>TOEFL</option>
-        </select>
-
-        <br/>
-        <label>Exam Score</label><br/>
+        <label>IELTS Score</label>
         <input
-            type="text"
-            id="score"
-            name="score"
-            placeholder="Enter your score"
-        />
+            type="number"
+            name="ielts"
+            step="0.5"
+            min="0"
+            max="9"
+            placeholder="e.g. 7.5"
+            required
+        >
 
         <br/>
         <label>Maximum Annual Tuition Budget</label><br/>
         <input
             type="text"
-            id="tuition_budget"
             name="tuition_budget"
             placeholder="Enter your budget"
-        />
+            required
+        >
 
         <br/>
         <br/>
         <button type="submit">
             Generate Report
         </button>
+
+        <br><br>
+
+        <a href="/view-reports">
+            <button type="button">
+                View Previous Reports
+            </button>
+        </a>
 
     </form>
     </div>

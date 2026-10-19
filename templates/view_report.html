@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Abroad Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+</head>
+<body>
+
+<div class="report-container">
+
+    <h1>Study Abroad Recommendation</h1>
+
+    <div class="section">
+        <h2>Recommended Country</h2>
+
+        <div class="country-box">
+            {{ country }}
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Reasons</h2>
+
+        <ul class="reason-list">
+            {% for reason in reasons %}
+                <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="actions">
+        <a href="/view-reports" class="btn-secondary">← Back</a>
+        <a href="/" class="btn-primary">Generate New Report</a>
+    </div>
+
+</div>
+
+</body>
+</html>

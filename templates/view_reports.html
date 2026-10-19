@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📄 My Study Abroad Reports</h1>
+    <p class="subtitle">Search all previously generated recommendations</p>
+
+    <form action="/search-report" method="POST" class="search-box">
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter your registered email"
+            required
+        >
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    {% if reports %}
+
+        {% for report in reports %}
+
+        <div class="report-card">
+
+            <div class="report-info">
+
+                <h2>🌍 {{ report[1] }}</h2>
+
+                <p>Generated on {{ report[2] }}</p>
+
+            </div>
+
+            <div class="report-actions">
+
+                <a href="/report/{{ report[0] }}" class="view-btn">View</a>
+
+                <a href="/edit-report/{{ report[0] }}" class="edit-btn">Edit</a>
+
+                <a href="/delete-report/{{ report[0] }}" class="delete-btn">Delete</a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% elif reports is defined %}
+
+        <div class="no-report">
+            <h3>No reports found</h3>
+            <p>Try another email address.</p>
+        </div>
+
+    {% endif %}
+
+    <div class="back-home">
+        <a href="/">← Generate New Report</a>
+    </div>
+
+</div>
+
+</body>
+</html>

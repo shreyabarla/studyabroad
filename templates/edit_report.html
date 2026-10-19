@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Edit Report</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Edit Report</h1>
+
+    <form action="/update-report/{{ report_id }}" method="POST">
+
+        <label>Full Name</label><br>
+        <input
+            type="text"
+            name="name"
+            value="{{ report.name }}"
+            required
+        >
+
+        <br><br>
+
+        <label>Mobile Number</label><br>
+        <input
+            type="text"
+            name="phone"
+            value="{{ report.phone }}"
+            required
+        >
+
+        <br><br>
+
+        <label>Email</label><br>
+        <input
+            type="email"
+            name="email"
+            value="{{ report.email }}"
+            readonly
+        >
+
+        <br><br>
+
+        <label>Preferred Destination</label><br>
+
+        <select name="destination">
+
+            <option value="Canada"
+                {% if report.destination == "Canada" %}selected{% endif %}>
+                Canada
+            </option>
+
+            <option value="Australia"
+                {% if report.destination == "Australia" %}selected{% endif %}>
+                Australia
+            </option>
+
+            <option value="USA"
+                {% if report.destination == "USA" %}selected{% endif %}>
+                USA
+            </option>
+
+            <option value="UK"
+                {% if report.destination == "UK" %}selected{% endif %}>
+                UK
+            </option>
+
+            <option value="Germany"
+                {% if report.destination == "Germany" %}selected{% endif %}>
+                Germany
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label>Education</label><br>
+
+        <select name="education">
+
+            <option value="12th Grade"
+                {% if report.education == "12th Grade" %}selected{% endif %}>
+                12th Grade
+            </option>
+
+            <option value="Bachelor's Degree"
+                {% if report.education == "Bachelor's Degree" %}selected{% endif %}>
+                Bachelor's Degree
+            </option>
+
+            <option value="Diploma"
+                {% if report.education == "Diploma" %}selected{% endif %}>
+                Diploma
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label>CGPA</label><br>
+
+        <input
+            type="number"
+            name="cgpa"
+            value="{{ report.cgpa }}"
+            step="0.01"
+            min="0"
+            max="10"
+            required
+        >
+
+        <br><br>
+
+        <label>Preferred Study Field</label><br>
+
+        <select name="field">
+
+            <option value="Engineering"
+                {% if report.field == "Engineering" %}selected{% endif %}>
+                Engineering
+            </option>
+
+            <option value="Medical"
+                {% if report.field == "Medical" %}selected{% endif %}>
+                Medical
+            </option>
+
+            <option value="Business & Management"
+                {% if report.field == "Business & Management" %}selected{% endif %}>
+                Business & Management
+            </option>
+
+            <option value="Finance"
+                {% if report.field == "Finance" %}selected{% endif %}>
+                Finance
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label>Budget</label><br>
+
+        <select name="budget">
+
+            <option value="Low"
+                {% if report.budget == "Low" %}selected{% endif %}>
+                Below ₹10 Lakhs
+            </option>
+
+            <option value="Medium"
+                {% if report.budget == "Medium" %}selected{% endif %}>
+                ₹10 - ₹20 Lakhs
+            </option>
+
+            <option value="High"
+                {% if report.budget == "High" %}selected{% endif %}>
+                Above ₹20 Lakhs
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label>Need Scholarship?</label><br>
+
+        <input
+            type="radio"
+            name="scholarship"
+            value="yes"
+            {% if report.scholarship == "yes" %}checked{% endif %}
+        > Yes
+
+        <input
+            type="radio"
+            name="scholarship"
+            value="no"
+            {% if report.scholarship == "no" %}checked{% endif %}
+        > No
+
+        <br><br>
+
+        <label>Need PR?</label><br>
+
+        <input
+            type="radio"
+            name="pr"
+            value="yes"
+            {% if report.pr == "yes" %}checked{% endif %}
+        > Yes
+
+        <input
+            type="radio"
+            name="pr"
+            value="no"
+            {% if report.pr == "no" %}checked{% endif %}
+        > No
+
+        <br><br>
+
+        <label>Importance of Part Time Jobs</label><br>
+
+        <select name="part_time">
+
+            <option value="High"
+                {% if report.part_time == "High" %}selected{% endif %}>
+                High
+            </option>
+
+            <option value="Medium"
+                {% if report.part_time == "Medium" %}selected{% endif %}>
+                Medium
+            </option>
+
+            <option value="Low"
+                {% if report.part_time == "Low" %}selected{% endif %}>
+                Low
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label>IELTS Score</label><br>
+
+        <input
+            type="number"
+            name="ielts"
+            value="{{ report.ielts }}"
+            step="0.5"
+            min="0"
+            max="9"
+            required
+        >
+
+        <br><br>
+
+        <label>Maximum Annual Tuition Budget</label><br>
+
+        <input
+            type="number"
+            name="tuition_budget"
+            value="{{ report.tuition_budget }}"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Update Report
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
